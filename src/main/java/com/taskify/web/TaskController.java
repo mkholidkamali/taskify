@@ -59,4 +59,10 @@ public class TaskController {
         taskManager.remove(id);
         return "redirect:/";
     }
+
+    @PostMapping("/tasks/{id}/done")
+    public String markDone(@PathVariable int id) {
+        taskManager.markDone(id);
+        return "redirect:/";
+    }
 }

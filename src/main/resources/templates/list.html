@@ -37,6 +37,9 @@
                     <td th:text="${task.showDetail()}">[Type] details</td>
                     <td th:text="${task.done} ? 'Done' : 'Pending'">Pending</td>
                     <td class="row-actions">
+                        <form th:unless="${task.done}" th:action="@{'/tasks/' + ${task.id} + '/done'}" method="post" class="inline-form">
+                            <button type="submit" class="btn btn-success">Mark done</button>
+                        </form>
                         <form th:action="@{'/tasks/' + ${task.id} + '/delete'}" method="post" class="inline-form">
                             <button type="submit" class="btn btn-danger">Delete</button>
                         </form>

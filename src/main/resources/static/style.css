@@ -98,6 +98,14 @@ button:hover, .btn:hover {
     background: #b50f24;
 }
 
+.btn-success {
+    background: #34c759;
+}
+
+.btn-success:hover {
+    background: #2ca94c;
+}
+
 .inline-form {
     display: inline;
     margin: 0;
