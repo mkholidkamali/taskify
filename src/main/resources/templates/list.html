@@ -27,6 +27,7 @@
                     <th>Title</th>
                     <th>Detail</th>
                     <th>Status</th>
+                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -35,6 +36,11 @@
                     <td th:text="${task.title}">Sample task</td>
                     <td th:text="${task.showDetail()}">[Type] details</td>
                     <td th:text="${task.done} ? 'Done' : 'Pending'">Pending</td>
+                    <td class="row-actions">
+                        <form th:action="@{'/tasks/' + ${task.id} + '/delete'}" method="post" class="inline-form">
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                    </td>
                 </tr>
             </tbody>
         </table>

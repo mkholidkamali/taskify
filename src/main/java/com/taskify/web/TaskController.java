@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -50,6 +51,12 @@ public class TaskController {
             default -> new PersonalTask(id, title, category);
         };
         taskManager.add(task);
+        return "redirect:/";
+    }
+
+    @PostMapping("/tasks/{id}/delete")
+    public String delete(@PathVariable int id) {
+        taskManager.remove(id);
         return "redirect:/";
     }
 }

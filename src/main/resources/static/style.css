@@ -90,6 +90,29 @@ button:hover, .btn:hover {
     background: #d1d1d6;
 }
 
+.btn-danger {
+    background: #e0142e;
+}
+
+.btn-danger:hover {
+    background: #b50f24;
+}
+
+.inline-form {
+    display: inline;
+    margin: 0;
+}
+
+.row-actions {
+    text-align: right;
+    white-space: nowrap;
+}
+
+.row-actions .btn {
+    padding: 0.35rem 0.75rem;
+    font-size: 0.85rem;
+}
+
 .toolbar {
     margin-bottom: 1.5rem;
 }
