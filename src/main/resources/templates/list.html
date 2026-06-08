@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Taskify</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
+</head>
+<body>
+    <header>
+        <h1>Taskify</h1>
+        <p class="subtitle">Simple task manager</p>
+    </header>
+
+    <main>
+        <div th:if="${#lists.isEmpty(tasks)}" class="empty">
+            <p>No tasks yet.</p>
+        </div>
+
+        <table th:unless="${#lists.isEmpty(tasks)}">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Title</th>
+                    <th>Detail</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="task : ${tasks}" th:classappend="${task.done} ? 'done' : ''">
+                    <td th:text="${task.id}">1</td>
+                    <td th:text="${task.title}">Sample task</td>
+                    <td th:text="${task.showDetail()}">[Type] details</td>
+                    <td th:text="${task.done} ? 'Done' : 'Pending'">Pending</td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+</body>
+</html>
