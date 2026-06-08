@@ -12,6 +12,10 @@
     </header>
 
     <main>
+        <div class="toolbar">
+            <a href="/new" class="btn">+ Add task</a>
+        </div>
+
         <div th:if="${#lists.isEmpty(tasks)}" class="empty">
             <p>No tasks yet.</p>
         </div>

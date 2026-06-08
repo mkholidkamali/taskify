@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Taskify · New task</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
+</head>
+<body>
+    <header>
+        <h1>Taskify</h1>
+        <p class="subtitle">New task</p>
+    </header>
+
+    <main>
+        <form method="post" action="/tasks" class="task-form">
+            <label>
+                Title
+                <input type="text" name="title" required autofocus>
+            </label>
+
+            <label>
+                Type
+                <select name="type" id="type-select">
+                    <option value="personal">Personal</option>
+                    <option value="work">Work</option>
+                    <option value="reminder">Reminder</option>
+                </select>
+            </label>
+
+            <label data-type="personal" class="extra-field">
+                Category
+                <input type="text" name="category" placeholder="e.g. Olahraga">
+            </label>
+
+            <label data-type="work" class="extra-field" hidden>
+                Deadline
+                <input type="text" name="deadline" placeholder="e.g. 2026-06-15">
+            </label>
+
+            <label data-type="reminder" class="extra-field" hidden>
+                Reminder time
+                <input type="text" name="reminderTime" placeholder="e.g. 09:00">
+            </label>
+
+            <div class="actions">
+                <button type="submit">Add task</button>
+                <a href="/" class="btn btn-secondary">Cancel</a>
+            </div>
+        </form>
+    </main>
+
+    <script>
+        const select = document.getElementById('type-select');
+        const fields = document.querySelectorAll('.extra-field');
+        select.addEventListener('change', () => {
+            fields.forEach(f => f.hidden = f.dataset.type !== select.value);
+        });
+    </script>
+</body>
+</html>
