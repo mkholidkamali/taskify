@@ -14,6 +14,11 @@
     <main>
         <div class="toolbar">
             <a href="/new" class="btn">+ Add task</a>
+            <nav class="filters">
+                <a th:href="@{/(status='all')}" th:classappend="${status == 'all'} ? 'active' : ''" class="filter-link">All</a>
+                <a th:href="@{/(status='pending')}" th:classappend="${status == 'pending'} ? 'active' : ''" class="filter-link">Pending</a>
+                <a th:href="@{/(status='done')}" th:classappend="${status == 'done'} ? 'active' : ''" class="filter-link">Done</a>
+            </nav>
         </div>
 
         <div th:if="${#lists.isEmpty(tasks)}" class="empty">

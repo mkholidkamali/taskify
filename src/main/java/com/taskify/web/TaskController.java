@@ -25,9 +25,12 @@ public class TaskController {
     }
 
     @GetMapping("/")
-    public String list(Model model) {
-        List<Task> tasks = taskManager.findAll();
+    public String list(
+            @RequestParam(required = false, defaultValue = "all") String status,
+            Model model) {
+        List<Task> tasks = taskManager.filter(status);
         model.addAttribute("tasks", tasks);
+        model.addAttribute("status", status);
         return "list";
     }
 

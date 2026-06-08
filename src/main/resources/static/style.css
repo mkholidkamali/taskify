@@ -123,6 +123,36 @@ button:hover, .btn:hover {
 
 .toolbar {
     margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.filters {
+    display: flex;
+    gap: 0.5rem;
+    margin-left: auto;
+}
+
+.filter-link {
+    padding: 0.4rem 0.85rem;
+    text-decoration: none;
+    color: #1d1d1f;
+    border-radius: 6px;
+    font-size: 0.875rem;
+    background: white;
+    border: 1px solid #d2d2d7;
+}
+
+.filter-link:hover {
+    background: #f0f0f0;
+}
+
+.filter-link.active {
+    background: #0070c9;
+    color: white;
+    border-color: #0070c9;
 }
 
 .task-form {
