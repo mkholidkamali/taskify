@@ -121,6 +121,21 @@ button:hover, .btn:hover {
     font-size: 0.85rem;
 }
 
+.reminder-form input {
+    padding: 0.3rem 0.5rem;
+    border: 1px solid #d2d2d7;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    width: 80px;
+    margin-right: 0.25rem;
+}
+
+.reminder-form input:focus {
+    outline: 2px solid #0070c9;
+    outline-offset: -1px;
+    border-color: transparent;
+}
+
 .toolbar {
     margin-bottom: 1.5rem;
     display: flex;

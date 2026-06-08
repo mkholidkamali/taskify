@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.taskify.domain.PersonalTask;
+import com.taskify.domain.Remindable;
 import com.taskify.domain.ReminderTask;
 import com.taskify.domain.Task;
 import com.taskify.domain.WorkTask;
@@ -66,6 +67,16 @@ public class TaskController {
     @PostMapping("/tasks/{id}/done")
     public String markDone(@PathVariable int id) {
         taskManager.markDone(id);
+        return "redirect:/";
+    }
+
+    @PostMapping("/tasks/{id}/reminder")
+    public String setReminder(@PathVariable int id, @RequestParam String time) {
+        taskManager.findById(id).ifPresent(task -> {
+            if (task instanceof Remindable remindable) {
+                remindable.setReminder(time);
+            }
+        });
         return "redirect:/";
     }
 }
